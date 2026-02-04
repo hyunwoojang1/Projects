@@ -1,0 +1,11 @@
+eo_id,part_id,old_part_code,new_part_code,effective_date,change_type,reason,scope,released_by,priority
+EO_001,BATTERY,BAT_A,BAT_B,2024-06-01,Part Change,Cost Reduction,ALL_MODELS,Eng_Change_Board,Medium
+EO_002,AIRBAG,ABG_X,ABG_Y,2024-06-07,Part Change,Safety Improvement,ALL_MODELS,Product_Planning,High
+EO_003,INFOTAINMENT,INF_V1,INF_V2,2024-06-11,Software Update,Feature Upgrade,ALL_MODELS,Eng_Change_Board,Low
+EO_004,BRAKE,BRK_STD,BRK_ENH,2024-06-15,Part Change,Performance,ALL_MODELS,Product_Planning,High
+EO_005,SEAT,ST_FAB,ST_LEATHER,2024-06-19,Option Change,Market Demand,ALL_MODELS,Product_Planning,Medium
+EO_006,WHEEL,WH_17,WH_18,2024-06-24,Part Change,Package Standardization,ALL_MODELS,Product_Planning,Low
+EO_007,CAMERA,CAM_0,CAM_1,2024-06-29,Part Change,ADAS Upgrade,ALL_MODELS,Product_Planning,Medium
+EO_008,SENSOR,SNS_A,SNS_B,2024-07-04,Part Change,Supplier Update,ALL_MODELS,Quality,High
+EO_009,INFOTAINMENT,INF_V2,INF_V3,2024-07-19,Software Update,Bug Fix / Stability,ALL_MODELS,Product_Planning,Medium
+EO_010,BATTERY,BAT_B,BAT_C,2024-08-03,Part Change,Range Improvement,ALL_MODELS,Quality,Medium
