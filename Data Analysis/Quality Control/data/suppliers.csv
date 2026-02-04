@@ -1,0 +1,13 @@
+supplier_id,supplier_name,location,quality_rating,lead_time_days,defect_ppm_baseline
+S001,Supplier_1,MI,A,11,194.09
+S002,Supplier_2,TN,B,4,287.0
+S003,Supplier_3,KY,C,10,620.5
+S004,Supplier_4,GA,A,13,166.64
+S005,Supplier_5,KY,A,6,102.01
+S006,Supplier_6,GA,A,8,82.77
+S007,Supplier_7,KY,A,5,196.85
+S008,Supplier_8,AL,B,8,227.92
+S009,Supplier_9,GA,A,4,152.91
+S010,Supplier_10,AL,C,11,784.53
+S011,Supplier_11,SC,A,5,107.71
+S012,Supplier_12,KY,A,3,139.42

@@ -1,0 +1,5 @@
+case_date,alert_type,supplier_id,part_id,plant_line,shift,rca_hypothesis_v1,key_evidence
+2026-01-30,DEFECT_SPIKE,S008,P0015,ChassisLine-1,B,Supplier-driven quality issue likely,DefectRate 7d/30d=2.38 | OOS 7d=0.200 (base=0.180) | Cost 7d/30d=3.65 | EO=0 | SupplierRating=B | CTQ=CTQ
+2026-01-30,DEFECT_SPIKE,S009,P0030,Final-1,B,Unknown,DefectRate 7d/30d=nan | OOS 7d=0.000 (base=0.000) | Cost 7d/30d=nan | EO=0 | SupplierRating=A | CTQ=Non-CTQ
+2026-01-30,COST_SPIKE,S008,P0015,ChassisLine-1,B,Supplier-driven quality issue likely,DefectRate 7d/30d=2.38 | OOS 7d=0.200 (base=0.180) | Cost 7d/30d=3.65 | EO=0 | SupplierRating=B | CTQ=CTQ
+2026-01-30,COST_SPIKE,S009,P0030,Final-1,B,Unknown,DefectRate 7d/30d=nan | OOS 7d=0.000 (base=0.000) | Cost 7d/30d=nan | EO=0 | SupplierRating=A | CTQ=Non-CTQ
