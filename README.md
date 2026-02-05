@@ -29,27 +29,22 @@ B.S. in Data Science
   - Financial data extraction using CRSP & Compustat
   - Technical indicators and macroeconomic features
   - Machine learning classification models and performance comparison
-  - 👉 [Repository Link]
 
 - **Factor-Based Portfolio Performance Analysis**
   - CAPM and multi-factor models
   - Risk-adjusted performance evaluation
-  - 👉 [Repository Link]
 
 ---
 
 ### 🏭 Manufacturing / Production / Quality Analytics
-*(In Progress)*
 
 - **Production Process KPI Analysis**
   - Analysis of operational KPIs
   - Identification of inefficiencies and abnormal patterns
-  - 👉 Planned
 
 - **Quality Defect Pattern Analysis**
   - Defect classification and frequency analysis
   - Root cause exploration using data
-  - 👉 Planned
 
 
 ## Contact
