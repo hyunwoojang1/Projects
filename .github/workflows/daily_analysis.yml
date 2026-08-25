@@ -1,0 +1,78 @@
+name: Daily Quant Analysis
+
+on:
+  schedule:
+    - cron: '0 23 * * *'  # 23:00 UTC = 08:00 KST
+  workflow_dispatch:       # GitHub 웹에서 수동 실행 가능
+
+env:
+  PROJECT_DIR: "Quant Investment Agent"
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.PAT_TOKEN }}
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Cache pip packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('Quant Investment Agent/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: Install dependencies
+        working-directory: ${{ env.PROJECT_DIR }}
+        run: |
+          pip install --upgrade pip
+          pip install torch --index-url https://download.pytorch.org/whl/cpu
+          pip install -r requirements.txt
+
+      - name: Create .env from GitHub Secrets
+        working-directory: ${{ env.PROJECT_DIR }}
+        run: |
+          echo "FRED_API_KEY=${{ secrets.FRED_API_KEY }}" > .env
+          echo "KAKAO_REST_API_KEY=${{ secrets.KAKAO_REST_API_KEY }}" >> .env
+          echo "KAKAO_ACCESS_TOKEN=${{ secrets.KAKAO_ACCESS_TOKEN }}" >> .env
+          echo "KAKAO_REFRESH_TOKEN=${{ secrets.KAKAO_REFRESH_TOKEN }}" >> .env
+          echo "CACHE_DIR=./cache" >> .env
+          echo "OUTPUT_DIR=./output" >> .env
+
+      - name: Create runtime directories
+        working-directory: ${{ env.PROJECT_DIR }}
+        run: mkdir -p logs output cache
+
+      - name: Run daily analysis
+        working-directory: ${{ env.PROJECT_DIR }}
+        run: python scheduler.py
+
+      - name: Sync refreshed Kakao tokens to GitHub Secrets
+        if: always()
+        working-directory: ${{ env.PROJECT_DIR }}
+        env:
+          GH_TOKEN: ${{ secrets.PAT_TOKEN }}
+        run: |
+          NEW_ACCESS=$(grep '^KAKAO_ACCESS_TOKEN=' .env | cut -d= -f2-)
+          NEW_REFRESH=$(grep '^KAKAO_REFRESH_TOKEN=' .env | cut -d= -f2-)
+          [ -n "$NEW_ACCESS" ] && gh secret set KAKAO_ACCESS_TOKEN --body "$NEW_ACCESS"
+          [ -n "$NEW_REFRESH" ] && gh secret set KAKAO_REFRESH_TOKEN --body "$NEW_REFRESH"
+
+      - name: Commit updated model
+        run: |
+          git config user.name "quant-bot"
+          git config user.email "quant-bot@noreply.github.com"
+          git add "Quant Investment Agent/models/"
+          git diff --staged --quiet || git commit -m "chore: model update $(date +%Y%m%d)"
+          git push

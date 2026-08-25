@@ -1,0 +1,7 @@
+eo_id,model,start_date,end_date,change_type,status
+EO001,SantaFe,2025-07-26,2025-08-11,NewSupplier,In Progress
+EO002,Sonata,2025-08-15,2025-08-29,ModelChange,Closed
+EO003,SantaFe,2025-10-14,2025-10-27,ModelChange,Closed
+EO004,Tucson,2025-11-03,2025-11-13,NewSupplier,In Progress
+EO005,Ioniq,2025-11-23,2025-12-14,NewSupplier,In Progress
+EO006,Tucson,2025-12-13,2025-12-29,EngineeringOrder,Closed

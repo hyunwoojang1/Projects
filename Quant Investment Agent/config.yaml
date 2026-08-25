@@ -1,0 +1,63 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# 카드 디자인 설정 — Streamlit 편집 UI(report/editor.py)에서 수정 가능
+# ─────────────────────────────────────────────────────────────────────────────
+
+design:
+  # 색상
+  background_color: "#0D0D0D"
+  accent_color: "#00FF88"
+  secondary_color: "#FF6B35"
+  text_primary: "#FFFFFF"
+  text_secondary: "#AAAAAA"
+  card_bg: "#1A1A1A"
+  positive_color: "#00FF88"
+  negative_color: "#FF4444"
+  neutral_color: "#FFD700"
+
+  # 폰트 크기
+  font_size_title: 72
+  font_size_subtitle: 48
+  font_size_body: 36
+  font_size_small: 28
+  font_size_label: 24
+
+  # 레이아웃
+  card_width: 1080
+  card_height: 1080
+  padding: 60
+  card_border_radius: 20
+  chart_margin_top: 80
+  chart_margin_bottom: 60
+
+  # 로고 / 브랜딩
+  logo_text: "QUANT SIGNAL"
+  logo_position: "top_right"   # top_left / top_right / bottom_left / bottom_right
+  show_disclaimer: true
+  language: "ko"               # ko / en
+  theme: "dark"                # dark / light
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 카드 ON/OFF 토글
+# ─────────────────────────────────────────────────────────────────────────────
+cards:
+  card_01_cover: true
+  card_02_timing: true
+  card_03_fear_greed: true
+  card_04_regime: true
+  card_05_sector: true
+  card_06_macro: true
+  card_07_disclaimer: true
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 분석 파라미터 (모델 관련은 modules/ 내 각 파일에서 관리)
+# ─────────────────────────────────────────────────────────────────────────────
+analysis:
+  lookback_years: 10
+  forward_days: 20
+  retrain_interval_days: 30
+  confidence_threshold: 0.60   # 이 미만이면 "불확실" 경고
+  label_thresholds:
+    strong_bull: 0.05    # > +5%  → TQQQ (label 2)
+    bull: 0.01           # +1~5% → QLD  (label 1)
+    bear: -0.01          # < -1% → 현금 (label -1)
+    # -1% ~ +1%: QQQ 보유 (label 0)

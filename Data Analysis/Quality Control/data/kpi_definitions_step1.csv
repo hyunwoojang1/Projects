@@ -1,0 +1,6 @@
+KPI,Formula,Interpretation,Tables
+"Defect Rate (per 1,000)",defect_count / qty_used * 1000,"How many defects occur per 1,000 used units (lot-level or aggregated).",production_lots + defects
+PPM,"defect_count / qty_used * 1,000,000",Defects per million units used (standard supplier quality metric).,production_lots + defects
+OOS Rate,out_of_spec_measurements / total_measurements,Fraction of measurements outside spec limits (LSL/USL).,dim_measurements
+Cost,sum(scrap_cost_usd + rework_cost_usd),Total quality cost captured from scrap + rework.,defects
+Risk Score (v1),100*oos_rate + 0.02*total_cost + 2*severity_points + 5*eo_active_flag,Explainable composite prioritization score for investigation (weights adjustable).,defects + dim_measurements + engineering_changes
